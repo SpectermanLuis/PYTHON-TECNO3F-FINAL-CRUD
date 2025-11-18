@@ -1,3 +1,14 @@
+#  TECNO 3F - CURSO PYTHON INTERMEDIO
+#  AÑO 2025
+#  DOCENTE  -  GABRIEL SEBASTIAN ROMAN
+
+## ALUMNO : LUIS OMAR SPECTERMAN     
+
+## DNI :  14.620.696
+
+## TP - ENTREGA FINAL 
+
+
 ## Consigna
 Deberan crear un CRUD sobre cualquier tematica ,
 que cumpla con lo siguiente:
@@ -18,38 +29,53 @@ Permite administrar productos y tablas maestras (categorías, proveedores y unid
 ## 📂 Estructura de directorios
 
 ```
-├── modelo/ │ 
-├── coneciondb.py # Clase Conneccion: maneja conexión y cursor a la base de datos SQLite 
 │ 
-├── productos_dao.py # CRUD y clase Producto 
+├── ddbb/ 
+├──── ferreteria.db  # Base de datos Sqlite 
 │ 
-├── categorias_dao.py # CRUD y clase Categoria 
+├── img
 │ 
-├── proveedores_dao.py # CRUD y clase Proveedor 
+├──── imagen_logo.png
+├──── imagen_principal.png
 │ 
-└── unidades_dao.py # CRUD y clase Unidad 
+├── include
+│ 
+├──── menu.py         # Menú principal (Inicio, Tablas Maestras, Productos, Consultas, Otros) 
+│
+├── modelo/  
+│
+├──── coneciondb.py     # Clase Conneccion: maneja conexión a la base de datos SQLite 
+│ 
+├──── productos_dao.py  # CRUD y clase Producto 
+│ 
+├──── categorias_dao.py # CRUD y clase Categoria 
+│ 
+├──── proveedores_dao.py # CRUD y clase Proveedor 
+│ 
+├──── unidades_dao.py    # CRUD y clase Unidad 
 │ 
 ├── vista/ 
 │ 
-├── menu.py # Menú principal con opciones Inicio, Tablas Maestras, Productos, Consultas, Otros 
+├──── productos_frame.py   # Frame ABM Productos
 │ 
-├── productos_frame.py # Ventana ABM Productos (Tkinter Toplevel) 
+├──── categorias_frame.py  # Frame ABM Categorías 
 │ 
-├── categorias_frame.py # Ventana ABM Categorías 
+├──── proveedores_frame.py # Frame ABM Proveedores 
 │ 
-├── proveedores_frame.py # Ventana ABM Proveedores 
+├──── unidades_frame.py    # Frame ABM Unidades de Medida 
 │ 
-└── unidades_frame.py # Ventana ABM Unidades de Medida 
-│ 
-└── consultas_frame.py # Ventanas de consultas (por categoría, proveedor, unidad, stock bajo) 
-│ 
-├── main.py # Punto de entrada: inicializa la aplicación y abre el menú principal 
+├──── consultas_frame.py   # Frame Consultas (por categoría, proveedor, unidad, stock bajo) 
+│                                              
+├── main.py    # Punto de entrada: inicializa la aplicación y abre el menú principal 
 └── README.md # Documentación del proyecto
 ```
 
 ---
 
 ## 📌 Descripción breve de cada archivo
+
+### Carpeta `ddbb/`
+- **ferreteria.db** → Base de Datos SQLite.  
 
 ### Carpeta `modelo/`
 - **coneciondb.py** → Clase `Conneccion` para abrir/cerrar conexión a SQLite.  
