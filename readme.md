@@ -1,7 +1,17 @@
-# Sistema de Gestión de Productos
+## Consigna
+Deberan crear un CRUD sobre cualquier tematica ,
+que cumpla con lo siguiente:
+Interfaz Grafica. (Tkinter, ttkthemes, kivy, PyQt , etc...)
+Contar con mínimo 3 Tablas que esten relacionadas. (ddbb
+SQLite) - La tabla intermedia no cuenta como tercera tabla
+Contener , en general, mínimo 5 campos de entrada. (Input,
+Select, Check, etc..)
 
-Proyecto académico en Python con **Tkinter** y SQLite.  
-Permite administrar productos y tablas maestras (categorías, proveedores y unidades de medida), además de realizar consultas específicas desde un menú principal.
+
+# Sistema de Ferreteria   
+
+Proyecto realizado en Python con **Tkinter** y SQLite.  
+Permite administrar productos y tablas maestras (categorías, proveedores y unidades de medida), además de realizar consultas específicas ( no requeridas por la consigna) desde un menú principal.
 
 ---
 
