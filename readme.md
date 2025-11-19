@@ -35,8 +35,10 @@ Permite administrar productos y tablas maestras (categorías, proveedores y unid
 │ 
 ├── img
 │ 
-├──── imagen_logo.png
-├──── imagen_principal.png
+├──── imagen_logo.png   Imagen fondo de pantalla menu principal
+├──── martillo.ico      Icono de la aplicacion
+│
+├────── capturas/ 
 │ 
 ├── include
 │ 
@@ -77,20 +79,29 @@ Permite administrar productos y tablas maestras (categorías, proveedores y unid
 ### Carpeta `ddbb/`
 - **ferreteria.db** → Base de Datos SQLite.  
 
+### Carpeta `img/`
+- **imagen_logo.png** → Imagen fondo del frame principal
+- **martillo.ico**    → Imagen icono de la aplicacion
+
+### Carpeta `img/capturas`
+- Capturas varias de las pantallas del sistema
+
+### Carpeta `include/`
+- **menu.py** → Barra de menú principal con opciones para abrir los distintos frames.  
+ 
 ### Carpeta `modelo/`
-- **coneciondb.py** → Clase `Conneccion` para abrir/cerrar conexión a SQLite.  
-- **productos_dao.py** → Clase `Producto` y funciones CRUD para la tabla `Productos`.  
-- **categorias_dao.py** → Clase `Categoria` y funciones CRUD para la tabla `Categorias`.  
-- **proveedores_dao.py** → Clase `Proveedor` y funciones CRUD para la tabla `Proveedores`.  
-- **unidades_dao.py** → Clase `Unidad` y funciones CRUD para la tabla `UnidadesMedida`.  
+- **coneciondb.py**      → Clase `Conneccion` para abrir/cerrar conexión a SQLite.  
+- **productos_dao.py**   → Clase `Producto`   y funciones CRUD para la tabla `Productos`.  
+- **categorias_dao.py**  → Clase `Categoria`  y funciones CRUD para la tabla `Categorias`.  
+- **proveedores_dao.py** → Clase `Proveedor`  y funciones CRUD para la tabla `Proveedores`.  
+- **unidades_dao.py**    → Clase `Unidad`     y funciones CRUD para la tabla `UnidadesMedida`.  
 
 ### Carpeta `vista/`
-- **menu.py** → Barra de menú principal con opciones para abrir los distintos frames.  
-- **productos_frame.py** → Ventana ABM de productos (alta, baja, modificación, listado).  
-- **categorias_frame.py** → Ventana ABM de categorías.  
+- **productos_frame.py**   → Ventana ABM de productos 
+- **categorias_frame.py**  → Ventana ABM de categorías.  
 - **proveedores_frame.py** → Ventana ABM de proveedores.  
-- **unidades_frame.py** → Ventana ABM de unidades de medida.  
-- **consultas_frame.py** → Ventanas de consultas: por categoría, proveedor, unidad y stock bajo.  
+- **unidades_frame.py**    → Ventana ABM de unidades de medida.  
+- **consultas_frame.py**   → Ventanas de consultas: por categoría, proveedor y stock bajo limite.  
 
 ### Raíz
 - **main.py** → Archivo principal que arranca la aplicación y carga el menú.  
@@ -137,3 +148,34 @@ Permite administrar productos y tablas maestras (categorías, proveedores y unid
             FOREIGN KEY (Proveedor) REFERENCES Proveedores(ID),
             FOREIGN KEY (Unidad) REFERENCES UnidadesMedida(ID)
         );
+
+
+# Pantallas Principales del Sistema
+
+
+# 📷 Capturas de pantalla
+
+## 🖥️ Pantalla principal
+![Pantalla Principal](img/capturas/menu_principal.png)
+
+## 🧰 ABM Productos
+![ABM Productos](img/capturas/abm_productos.png)
+
+## 🗂️ ABM Categorías
+![ABM Categorías](img/capturas/abm_categorias.png)
+
+## 🏷️ ABM Proveedores
+![ABM Proveedores](img/capturas/abm_proveedores.png)
+
+## 📏 ABM Unidades de Medida
+![ABM Unidades de Medida](img/capturas/abm_unimedida.png)
+
+## 🔎 Consultas
+# Por Seleccion Proveedor
+![Consultas x Proveedor ](img/capturas/consultaxproveedor.png)
+
+# Por Seleccion Categoria
+![Consultas x Categoria ](img/capturas/consultaxcategoria.png)
+
+# Por Bajo Stock 
+![Consultas x Stock Bajo Limite ](img/capturas/consulta_bajo_stock.png)
