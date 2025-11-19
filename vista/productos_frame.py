@@ -144,29 +144,43 @@ class FrameProductos(tk.Toplevel):
     def borrar_registro(self):
         try:
             self.id_producto = self.tabla.item(self.tabla.selection())['text']
-            response = messagebox.askyesno("Confirmar", "¿Desea borrar el producto?",
-    parent=self)
+            response = messagebox.askyesno("Confirmar", "¿Desea borrar el producto?",parent=self)
             
             if response:
                 productos.borrar_producto(int(self.id_producto))
             else:
-                messagebox.showinfo("Aviso", "No se borró ningún producto",
-    parent=self)
+                messagebox.showinfo("Aviso", "No se borró ningún producto",parent=self)
             
             self.id_producto = None
             self.mostrar_tabla()
         except:
-            messagebox.showwarning("Atención", "Seleccione un producto primero",
-    parent=self)
+            messagebox.showwarning("Atención", "Seleccione un producto primero",parent=self)
 
     def guardar_campos(self):
+
+        nombre = self.nombre.get().strip()   
+
+        if not nombre:   # si está vacío
+            messagebox.showwarning("Atención", "Debe ingresar un nombre válido",parent=self)
+            return
 
         try:
             stock_valor = int(self.stock.get())
         except ValueError:
-            messagebox.showerror("Error", "El campo Stock debe ser un número entero",
-    parent=self)
+            messagebox.showerror("Error", "El campo Stock debe ser un número entero",parent=self)
             return  # salir sin guardar
+
+        if self.entry_categoria.current() == 0:
+            messagebox.showwarning("Atención", "Debe seleccionar una categoría válida",parent=self)
+            return
+
+        if self.entry_proveedor.current() == 0:
+            messagebox.showwarning("Atención", "Debe seleccionar un proveedor válido",parent=self)
+            return
+
+        if self.entry_unidad.current() == 0:
+            messagebox.showwarning("Atención", "Debe seleccionar una unidad válida",parent=self)
+            return
 
         producto = productos.Producto(
             self.nombre.get(),
@@ -176,13 +190,16 @@ class FrameProductos(tk.Toplevel):
             self.unidad_manager.get_id_por_indice(self.entry_unidad.current())
         )
 
-        if self.id_producto is None:
-            productos.guardar_producto(producto)
-        else:
-            productos.editar_producto(producto, int(self.id_producto))
+        try:
+            if self.id_producto is None:
+                productos.guardar_producto(producto)
+            else:
+                productos.editar_producto(producto, int(self.id_producto))
 
-        self.mostrar_tabla()
-        self.bloquear_campos()
+            self.mostrar_tabla()
+            self.bloquear_campos()
+        except Exception as e:
+            messagebox.showerror("Error", f"No se pudo guardar: {e}",parent=self)
 
     def editar_registro(self):
         try:
@@ -209,14 +226,10 @@ class FrameProductos(tk.Toplevel):
                 self.entry_unidad.current(indice_uni)
             except Exception as e:
                 print("Error en get_indice_por_abreviatura:", e)
-                messagebox.showerror("Error", f"Ocurrió un error: {e}",
-    parent=self)
-
-            # self.entry_unidad.current(indice_uni)
+                messagebox.showerror("Error", f"Ocurrió un error: {e}",parent=self)
         
         except:
-            messagebox.showwarning("Atención", "Seleccione un producto primero",
-    parent=self)
+            messagebox.showwarning("Atención", "Seleccione un producto primero",parent=self)
 
     def habilitar_campos(self):
         self.entry_nombre.config(state='normal')

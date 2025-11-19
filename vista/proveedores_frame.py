@@ -76,13 +76,23 @@ class FrameProveedores(tk.Toplevel):
         self.btn_delete.grid(row=4, column=1, padx=10, pady=10)
 
     def guardar_campos(self):
+
+        nombre = self.nombre.get().strip()   
+        if not nombre:   # si está vacío
+            messagebox.showwarning("Atención", "Debe ingresar un nombre válido",parent=self)
+            return
+
         proveedor = proveedores.Proveedor(self.nombre.get(), self.contacto.get())
-        if self.id_proveedor is None:
-            proveedores.guardar_proveedor(proveedor)
-        else:
-            proveedores.editar_proveedor(proveedor, int(self.id_proveedor))
-        self.mostrar_tabla()
-        self.bloquear_campos()
+
+        try:
+            if self.id_proveedor is None:
+                proveedores.guardar_proveedor(proveedor)
+            else:
+                proveedores.editar_proveedor(proveedor, int(self.id_proveedor))
+            self.mostrar_tabla()
+            self.bloquear_campos()
+        except Exception as e:
+            messagebox.showerror("Error", f"No se pudo guardar: {e}",parent=self)
 
     def editar_registro(self):
         try:
@@ -92,20 +102,17 @@ class FrameProveedores(tk.Toplevel):
             self.nombre.set(valores[0])
             self.contacto.set(valores[1])
         except:
-            messagebox.showwarning("Atención", "Seleccione un proveedor primero",
-    parent=self)
+            messagebox.showwarning("Atención", "Seleccione un proveedor primero",parent=self)
 
     def borrar_registro(self):
         try:
             self.id_proveedor = self.tabla.item(self.tabla.selection())['text']
-            response = messagebox.askyesno("Confirmar", "¿Desea borrar el proveedor?",
-    parent=self)
+            response = messagebox.askyesno("Confirmar", "¿Desea borrar el proveedor?",parent=self)
             if response:
                 proveedores.borrar_proveedor(int(self.id_proveedor))
             self.mostrar_tabla()
         except:
-            messagebox.showwarning("Atención", "Seleccione un proveedor primero",
-    parent=self)
+            messagebox.showwarning("Atención", "Seleccione un proveedor primero",parent=self)
 
     def habilitar_campos(self):
         self.entry_nombre.config(state='normal')

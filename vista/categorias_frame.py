@@ -68,13 +68,23 @@ class FrameCategorias(tk.Toplevel):
         self.btn_delete.grid(row=4, column=1, padx=10, pady=10)
 
     def guardar_campos(self):
+
+        nombre = self.nombre.get().strip()   
+        if not nombre:   # si está vacío
+            messagebox.showwarning("Atención", "Debe ingresar un nombre válido",parent=self)
+            return
+
         categoria = categorias.Categoria(self.nombre.get())
-        if self.id_categoria is None:
-            categorias.guardar_categoria(categoria)
-        else:
-            categorias.editar_categoria(categoria, int(self.id_categoria))
-        self.mostrar_tabla()
-        self.bloquear_campos()
+
+        try:
+            if self.id_categoria is None:
+                categorias.guardar_categoria(categoria)
+            else:
+                categorias.editar_categoria(categoria, int(self.id_categoria))
+            self.mostrar_tabla()
+            self.bloquear_campos()
+        except Exception as e:
+            messagebox.showerror("Error", f"No se pudo guardar: {e}",parent=self)
 
     def editar_registro(self):
         try:
@@ -83,20 +93,17 @@ class FrameCategorias(tk.Toplevel):
             self.habilitar_campos()
             self.nombre.set(valores[0])
         except:
-            messagebox.showwarning("Atención", "Seleccione una categoría primero",
-    parent=self)
+            messagebox.showwarning("Atención", "Seleccione una categoría primero",parent=self)
 
     def borrar_registro(self):
         try:
             self.id_categoria = self.tabla.item(self.tabla.selection())['text']
-            response = messagebox.askyesno("Confirmar", "¿Desea borrar la categoría?",
-    parent=self)
+            response = messagebox.askyesno("Confirmar", "¿Desea borrar la categoría?",parent=self)
             if response:
                 categorias.borrar_categoria(int(self.id_categoria))
             self.mostrar_tabla()
         except:
-            messagebox.showwarning("Atención", "Seleccione una categoría primero",
-    parent=self)
+            messagebox.showwarning("Atención", "Seleccione una categoría primero",parent=self)
 
     def habilitar_campos(self):
         self.entry_nombre.config(state='normal')

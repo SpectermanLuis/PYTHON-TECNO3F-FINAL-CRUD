@@ -6,7 +6,7 @@ from modelo.productos_dao import crear_tabla   # importar la función
 def main():
     ventana = tk.Tk()
     ventana.title('Sistema de Ferreteria')
-    # ventana.iconbitmap('img/icono.ico')
+    ventana.iconbitmap('img/martillo.ico')
     # ventana.resizable(0,0)
     ventana.geometry("900x600")
 

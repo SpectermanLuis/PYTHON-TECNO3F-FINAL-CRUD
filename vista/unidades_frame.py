@@ -103,12 +103,10 @@ class FrameUnidades(tk.Toplevel):
         abrev = self.abreviatura.get().strip()
 
         if not nombre:
-            messagebox.showwarning("Atención", "El campo Nombre es obligatorio",
-    parent=self)
+            messagebox.showwarning("Atención", "El campo Nombre es obligatorio",parent=self)
             return
         if not abrev:
-            messagebox.showwarning("Atención", "El campo Abreviatura es obligatorio",
-    parent=self)
+            messagebox.showwarning("Atención", "El campo Abreviatura es obligatorio",parent=self)
             return
 
         unidad = unidades.Unidad(nombre, abrev)
@@ -121,8 +119,7 @@ class FrameUnidades(tk.Toplevel):
             self.mostrar_tabla()
             self.bloquear_campos()
         except Exception as e:
-            messagebox.showerror("Error", f"No se pudo guardar: {e}",
-    parent=self)
+            messagebox.showerror("Error", f"No se pudo guardar: {e}",parent=self)
 
     def editar_registro(self):
         try:
