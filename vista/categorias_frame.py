@@ -1,3 +1,7 @@
+#######################  #################################
+# categorias_frame.py #  #  Operaciones Frame categorias #
+#######################  #################################
+
 import tkinter as tk
 from tkinter import ttk, messagebox
 
@@ -13,7 +17,7 @@ class FrameCategorias(tk.Toplevel):
 
         self.id_categoria = None
 
-        # Widgets internos
+
         self.label_form()
         self.input_form()
         self.botones_principales()

@@ -1,3 +1,8 @@
+####################  #####################################
+# productos_dao.py #  #  Operaciones ABM tabla productos  #
+####################  #####################################
+
+
 from .coneciondb import Conneccion
 
 # Crear tablas
@@ -37,7 +42,7 @@ def crear_tabla():
     try:
         conn.cursor.executescript(sql)
 
-       # --- Carga inicial ---
+       # --- Carga inicial de algunos datos en tablas maestras ---
         # Categorías
         conn.cursor.execute("SELECT COUNT(*) FROM Categorias;")
         if conn.cursor.fetchone()[0] == 0:
@@ -78,7 +83,7 @@ def crear_tabla():
         print("Error al crear tablas:", e)
 
 
-# Clase Producto (modelo)
+
 class Producto:
     def __init__(self, nombre, stock, categoria, proveedor, unidad):
         self.nombre = nombre
@@ -91,7 +96,6 @@ class Producto:
         return f'Producto[{self.nombre}, {self.stock}, {self.categoria}, {self.proveedor}, {self.unidad}]'
 
 
-# CRUD básico
 def guardar_producto(producto):
     conn = Conneccion()
     sql = f'''
@@ -157,7 +161,7 @@ def borrar_producto(id):
         print("Error al borrar producto:", e)
 
 
-# Funciones auxiliares (las que faltaban)
+
 def listar_categorias():
     conn = Conneccion()
     sql = "SELECT ID, Nombre FROM Categorias;"

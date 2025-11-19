@@ -1,3 +1,7 @@
+############  ###################################
+#  menu.py #  #  menu de opciones del sistema   #
+############  ###################################
+
 import tkinter as tk
 from tkinter import ttk, messagebox
 from modelo.productos_dao    import crear_tabla
@@ -6,13 +10,11 @@ from vista.proveedores_frame import FrameProveedores
 from vista.unidades_frame    import FrameUnidades
 from vista.categorias_frame  import FrameCategorias
 
-
 from vista.consultas_frame import (
     ConsultaPorCategoria,
     ConsultaPorProveedor,
     ConsultaStockBajo
 )
-
 
 def barrita_menu(root):
     barra = tk.Menu(root)
@@ -35,7 +37,7 @@ def barrita_menu(root):
     # m_inicio.add_command(label="Conectar DB", command=crear_tabla)
     m_inicio.add_command(label="Salir", command=root.destroy)
 
-    # Tablas Maestras (podés agregar frames si querés ABM de categorías/proveedores/unidades)
+    # Tablas Maestras 
     m_maestras.add_command(label="ABM Categorías" , command=lambda: FrameCategorias(root))
     m_maestras.add_command(label="ABM Proveedores", command=lambda: FrameProveedores(root) ) 
     m_maestras.add_command(label="ABM Unidades de Medida", command=lambda: FrameUnidades(root))

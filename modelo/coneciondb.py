@@ -1,3 +1,7 @@
+#################  ###################################
+# coneciondb.py #  #  Coneccion a la  base de datoss #
+#################  ###################################
+
 import sqlite3
 
 class Conneccion():

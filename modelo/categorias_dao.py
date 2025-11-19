@@ -1,6 +1,9 @@
+#####################  #####################################
+# categorias_dao.py #  #  Operaciones ABM tabla categorias #
+#####################  #####################################
+
 from .coneciondb import Conneccion
 
-# Clase que representa una categoría individual
 class Categoria:
     def __init__(self, nombre):
         self.nombre = nombre

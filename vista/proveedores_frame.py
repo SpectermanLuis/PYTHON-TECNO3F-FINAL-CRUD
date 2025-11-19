@@ -1,3 +1,7 @@
+########################  #################################
+# proveedores_frame.py #  # Operaciones Frame proveedores #
+########################  #################################
+
 import tkinter as tk
 from tkinter import ttk, messagebox
 
@@ -13,7 +17,7 @@ class FrameProveedores(tk.Toplevel):
 
         self.id_proveedor = None
 
-        # Widgets internos
+        
         self.label_form()
         self.input_form()
         self.botones_principales()

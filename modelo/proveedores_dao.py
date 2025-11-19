@@ -1,7 +1,10 @@
+######################  ######################################
+# proveedores_dao.py #  #  Operaciones ABM tabla proveedores #
+######################  ######################################
+
 from .productos_dao import listar_proveedores
 from .coneciondb import Conneccion
 
-# Clase que representa un proveedor
 class Proveedor:
     def __init__(self, nombre, contacto):
         self.nombre = nombre

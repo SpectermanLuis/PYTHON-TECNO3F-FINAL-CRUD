@@ -1,3 +1,7 @@
+######################  ################################
+# productos_frame.py #  #  Operaciones Frame productos #
+######################  ################################
+
 import tkinter as tk
 from tkinter import ttk, messagebox
 
@@ -11,7 +15,6 @@ from modelo import categorias_dao as categorias
 from modelo import proveedores_dao as proveedores
 from modelo import unidades_dao as unidades
 
-#class FrameProductos(tk.Frame):
 class FrameProductos(tk.Toplevel):    
     def __init__(self, root=None):
         super().__init__(root, width=900, height=600)
@@ -48,7 +51,7 @@ class FrameProductos(tk.Toplevel):
         self.entry_stock = tk.Entry(self, textvariable=self.stock, state='disabled', width=50)
         self.entry_stock.grid(row=1, column=1, padx=10, pady=10)
 
-        # Combos
+        # Combobox categoria
         self.categoria_manager = categorias.CategoriaManager()
         self.entry_categoria = ttk.Combobox(self, state="readonly")    
         self.entry_categoria.config(width=25, state='disabled')
@@ -63,7 +66,7 @@ class FrameProductos(tk.Toplevel):
         self.entry_categoria.bind("<<ComboboxSelected>>", on_categoria_selected)
         self.entry_categoria.grid(row= 2, column=1,padx=10,pady=10)
 
-       # Combos
+       # Combobox proveedor
         self.proveedor_manager = proveedores.ProveedorManager()
         self.entry_proveedor = ttk.Combobox(self, state="readonly")    
         self.entry_proveedor.config(width=25, state='disabled')
@@ -78,8 +81,7 @@ class FrameProductos(tk.Toplevel):
         self.entry_proveedor.bind("<<ComboboxSelected>>", on_proveedor_selected)
         self.entry_proveedor.grid(row= 3, column=1,padx=10,pady=10)
 
-
-       # Combos
+       # Combobox Unidades Medida
         self.unidad_manager = unidades.UnidadManager()
         self.entry_unidad = ttk.Combobox(self, state="readonly")    
         self.entry_unidad.config(width=25, state='disabled')
@@ -160,7 +162,7 @@ class FrameProductos(tk.Toplevel):
 
         nombre = self.nombre.get().strip()   
 
-        if not nombre:   # si está vacío
+        if not nombre:   
             messagebox.showwarning("Atención", "Debe ingresar un nombre válido",parent=self)
             return
 

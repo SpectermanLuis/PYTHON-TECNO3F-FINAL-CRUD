@@ -1,3 +1,8 @@
+###########  ###################################################
+# main.py #  #  Ejecuta el sistema / Crea tablas si no existen #
+###########  ###################################################
+
+
 import tkinter as tk
 from vista.productos_frame import FrameProductos
 from include.menu import barrita_menu
@@ -13,12 +18,11 @@ def main():
 
     logo = tk.PhotoImage(file="img/imagen_logo.png")
 
-    # Mostrar imagen centrada
+    # Mostrar imagen principal
     label_logo = tk.Label(ventana, image=logo)
     label_logo.pack(expand=True)
 
-
-    # Crear tablas automáticamente al inicio
+    # Crear tablas al inicio
     crear_tabla()
 
     # Menú

@@ -1,7 +1,10 @@
+###################  #########################################
+# unidades_dao.py #  #  Operaciones ABM tabla unidadesmedida #
+###################  #########################################
+
 from .productos_dao import listar_unidades
 from .coneciondb import Conneccion
 
-# Clase que representa una unidad de medida
 class Unidad:
     def __init__(self, nombre, abreviatura):
         self.nombre = nombre
@@ -78,7 +81,6 @@ class UnidadManager:
             if uni['Nombre'] == nombre:
                 return i
         return 0
-
 
     def get_abreviaturas(self):
         return [uni['Abreviatura'] for uni in self.unidades]

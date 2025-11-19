@@ -1,3 +1,7 @@
+#####################  #########################################
+# unidades_frame.py #  # Operaciones Frame Unidades de Medida  #
+#####################  #########################################
+
 import tkinter as tk
 from tkinter import ttk, messagebox
 
@@ -13,7 +17,7 @@ class FrameUnidades(tk.Toplevel):
 
         self.id_unidad = None
 
-        # Widgets internos
+        
         self.label_form()
         self.input_form()
         self.botones_principales()
@@ -141,8 +145,7 @@ class FrameUnidades(tk.Toplevel):
             if not seleccion:
                 raise ValueError("Sin selección")
             self.id_unidad = self.tabla.item(seleccion)['text']
-            response = messagebox.askyesno("Confirmar", "¿Desea borrar la unidad de medida?",
-    parent=self)
+            response = messagebox.askyesno("Confirmar", "¿Desea borrar la unidad de medida?", parent=self)
             if response:
                 unidades.borrar_unidad(int(self.id_unidad))
             self.mostrar_tabla()
