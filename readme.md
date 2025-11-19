@@ -102,4 +102,38 @@ Permite administrar productos y tablas maestras (categorías, proveedores y unid
 1. Clonar o descargar el proyecto.  
 2. Ejecutar `main.py` con Python 3:  
    ```bash
-   python main.py
+   python main.py 
+
+
+# Estructura de la base de datos **ferreteria**
+
+    
+        CREATE TABLE IF NOT EXISTS Categorias(
+            ID INTEGER PRIMARY KEY AUTOINCREMENT,
+            Nombre TEXT NOT NULL,
+            Descripcion TEXT
+        );
+
+        CREATE TABLE IF NOT EXISTS Proveedores(
+            ID INTEGER PRIMARY KEY AUTOINCREMENT,
+            Nombre TEXT NOT NULL,
+            Contacto TEXT
+        );
+
+        CREATE TABLE IF NOT EXISTS UnidadesMedida(
+            ID INTEGER PRIMARY KEY AUTOINCREMENT,
+            Nombre TEXT NOT NULL,
+            Abreviatura TEXT NOT NULL
+        );
+
+        CREATE TABLE IF NOT EXISTS Productos(
+            ID INTEGER PRIMARY KEY AUTOINCREMENT,
+            Nombre TEXT NOT NULL,
+            Stock INTEGER NOT NULL,
+            Categoria INTEGER,
+            Proveedor INTEGER,
+            Unidad INTEGER,
+            FOREIGN KEY (Categoria) REFERENCES Categorias(ID),
+            FOREIGN KEY (Proveedor) REFERENCES Proveedores(ID),
+            FOREIGN KEY (Unidad) REFERENCES UnidadesMedida(ID)
+        );
