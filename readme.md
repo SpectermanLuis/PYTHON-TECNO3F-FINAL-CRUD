@@ -1,32 +1,32 @@
-#  TECNO 3F - CURSO PYTHON INTERMEDIO
-#  AÑO 2025
-#  DOCENTE  -  GABRIEL SEBASTIAN ROMAN
+# TECNO 3F - CURSO PYTHON INTERMEDIO  
+# AÑO 2025  
+# DOCENTE: GABRIEL SEBASTIÁN ROMAN  
 
-## ALUMNO : LUIS OMAR SPECTERMAN     
+## ALUMNO: LUIS OMAR SPECTERMAN  
+## DNI: 14.620.696  
+## TP - ENTREGA FINAL  
 
-## DNI :  14.620.696
+---
 
-## TP - ENTREGA FINAL 
+## 📌 Consigna
+Deberán crear un CRUD sobre cualquier temática que cumpla con lo siguiente:
 
+- Interfaz gráfica (Tkinter, ttkthemes, Kivy, PyQt, etc.).  
+- Mínimo 3 tablas relacionadas (SQLite).  
+  > La tabla intermedia **no** cuenta como tercera tabla.  
+- Contener, en general, mínimo 5 campos de entrada (Input, Select, Check, etc.).
 
-## Consigna
-Deberan crear un CRUD sobre cualquier tematica ,
-que cumpla con lo siguiente:
-Interfaz Grafica. (Tkinter, ttkthemes, kivy, PyQt , etc...)
-Contar con mínimo 3 Tablas que esten relacionadas. (ddbb
-SQLite) - La tabla intermedia no cuenta como tercera tabla
-Contener , en general, mínimo 5 campos de entrada. (Input,
-Select, Check, etc..)
+---
 
+# 🛠️ Sistema de Ferretería   
 
-# Sistema de Ferreteria   
-
-Proyecto realizado en Python con **Tkinter** y SQLite.  
-Permite administrar productos y tablas maestras (categorías, proveedores y unidades de medida), además de realizar consultas específicas ( no requeridas por la consigna) desde un menú principal.
+Proyecto realizado en Python utilizando **Tkinter** y **SQLite**.  
+Permite administrar productos y tablas maestras (categorías, proveedores y unidades de medida), además de realizar consultas específicas desde un menú principal.
 
 ---
 
 ## 📂 Estructura de directorios
+
 
 ```
 │ 
